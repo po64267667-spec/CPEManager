@@ -1,27 +1,74 @@
+CPEManager 
+
+是一款面向兼容华为 CPE 路由器的 Windows 桌面管理工具，用于查看 4G/5G 信号状态、网络参数、设备信息和短信，并提供网络模式切换、频段锁定及设备加速等本地管理功能。
+
+项目介绍（README）
+
+CPEManager
+
+CPEManager 是一个原生 Windows 桌面应用，为兼容的华为 CPE 路由器提供更直观的本地管理界面。应用基于 WebView2 构建界面，通过路由器局域网 Web API 读取状态并执行管理操作。
+
+主要功能
+
+实时查看 4G/5G 信号参数：RSRP、RSRQ、RSSI、SINR
+
+查看主载波与辅载波的频段、带宽、ARFCN、PCI 等信息
+
+查看上下行速率、流量统计和联网时长
+
+查看设备型号、IMEI、IMSI、软件版本等 CPE 信息
+
+切换网络偏好、5G SA/NSA 模式和移动数据开关
+
+锁定或解除 4G/5G 频段与小区
+
+查看、发送和管理 CPE 短信
+
+查看已连接设备及支持的设备加速状态
+
+读取支持设备的签约上下行速率
+
+使用说明
+
+将电脑连接到 CPE 所在局域网。
+
+启动 CPEManager。
+
+输入 CPE 的管理地址和密码并登录。
+
+在首页、控制、锁频、参数和短信页面使用对应功能。
+
+隐私与安全
+
+登录信息仅保存在本机，并使用 Windows 用户级加密保护。请勿提交本地登录文件、浏览器数据、日志或编译产物到仓库。
+
+兼容性说明
+
+不同 CPE 型号和固件版本提供的本地 API 可能不同。请仅在自己拥有或被授权管理的设备上使用本项目，并在使用涉及网络模式、锁频或短信的功能前确认其适用于你的设备。
 # CPEManager
 
-A native Windows desktop client for compatible Huawei CPE routers. It uses WebView2 for the interface and communicates with the router's local web API to show signal data, manage network modes and bands, view SMS, and access supported device controls.
+一款适用于兼容华为CPE路由器的原生Windows桌面客户端。它使用WebView2作为界面，并通过路由器的本地Web API进行通信，以显示信号数据、管理网络模式和频段、查看短信以及访问支持的设备控制功能。
 
-## Requirements
+## 要求
 
-- Windows 10 or later
-- Visual Studio 2022 Community (or Build Tools) with the Desktop development with C++ workload
-- Internet access the first time you build, so the WebView2 SDK can be downloaded from NuGet
+- Windows 10 或更高版本
+- Visual Studio 2022 Community（或 Build Tools）并包含 C++ 桌面开发工作负载
+- 首次构建时需要互联网连接，因此 WebView2 SDK 可以从 NuGet 下载
 
-## Build
+## 构建
 
-Run `build-release.bat` from a Developer Command Prompt for Visual Studio. The script downloads `Microsoft.Web.WebView2` version `1.0.2903.40` into `packages/` when needed, then produces `CPEManager.exe` and `CpeContractRate.dll`.
+运行 `build-release.bat`，从 Visual Studio 的开发者命令提示符中运行。该脚本会在需要时下载 `Microsoft.Web.WebView2`版本 `1.0.2903.40`到 `packages/`目录，然后生成 `CPEManager.exe`和 `CpeContractRate.dll`。
 
-## Security and privacy
+## 安全与隐私
 
-- Do not commit `cpe_login.txt`, `cpe_login.dat`, `WebViewData/`, logs, test captures, or generated binaries.
-- CPE credentials saved by the app are protected with Windows DPAPI and can be decrypted only by the Windows user who saved them. They are never returned to the embedded web interface.
-- The tool can reveal router and SIM information, connected-device metadata, and SMS content. Use it only on a router you own or are authorized to administer.
+-不要提交`cpe_login.txt`, `cpe_login.dat`, `WebViewData/`, 日志、测试捕获或生成的二进制文件。
+- 应用保存的 CPE 凭据受到 Windows DPAPI 的保护，只能由保存它们的 Windows 用户解密。它们绝不会返回到嵌入式 Web 界面。
+-该工具可以显示路由器和SIM卡信息、已连接设备的元数据以及短信内容。仅在您拥有或被授权管理的路由器上使用。
 
-## Tests
+## 测试
 
-The `tests/` directory contains protocol and UI probes. Some tests need a reachable local CPE and valid credentials; keep all such credentials in files excluded by `.gitignore`.
+The `tests/`目录包含协议和UI探测。某些测试需要可访问的本地CPE和有效的凭据；请将所有此类凭据保存在被 `.gitignore`. 排除的文件中。
 
-## Before publishing
+## 发布前
 
-Choose and add a software license, then review the supported router models and API behavior before advertising broad compatibility. No license is included in this repository because the project owner must make that legal choice.
+选择并添加软件许可证，然后查看支持的路由器型号和 API 行为，然后再宣传广泛兼容性。本仓库不包含任何许可证，因为项目所有者必须做出该法律选择。
