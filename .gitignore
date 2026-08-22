@@ -1,0 +1,24 @@
+# Local CPE credentials and WebView2 browser profile
+cpe_login.txt
+cpe_login.dat
+WebViewData/
+
+# Build output
+*.exe
+*.dll
+*.obj
+*.lib
+*.exp
+*.pdb
+*.ilk
+
+# Downloaded dependencies and diagnostics
+packages/
+*.nupkg
+debug-*/
+*.log
+
+# IDE files
+.vs/
+*.user
+*.suo
