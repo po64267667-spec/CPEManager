@@ -10,6 +10,21 @@ CPEManager 是一款面向兼容华为 CPE 路由器的 Windows 桌面管理工�
 
 它通过路由器的本地 Web API 提供更直观的管理界面，可查看 4G/5G 信号、网络状态、设备信息和短信，并支持网络模式切换、频段锁定和设备加速管理。
 
+### 界面截图
+
+<p align="center">
+  <img src="docs/screenshots/home.png" alt="首页" width="49%">
+  <img src="docs/screenshots/control.png" alt="控制" width="49%">
+</p>
+<p align="center">
+  <img src="docs/screenshots/lock.png" alt="锁频" width="49%">
+  <img src="docs/screenshots/params.png" alt="参数" width="49%">
+</p>
+<p align="center">
+  <img src="docs/screenshots/messages.png" alt="短信" width="49%">
+  <img src="docs/screenshots/settings.png" alt="设置" width="49%">
+</p>
+
 ### 功能
 
 - 实时查看 RSRP、RSRQ、RSSI、SINR 等 4G/5G 信号参数
@@ -57,6 +72,21 @@ build-release.bat
 CPEManager is a Windows desktop management tool for compatible Huawei CPE routers.
 
 It provides a more intuitive interface through the router's local Web API, allowing users to monitor 4G/5G signal data, network status, device information, and SMS messages, as well as manage network modes, band locking, and device acceleration.
+
+### Screenshots
+
+<p align="center">
+  <img src="docs/screenshots/home.png" alt="Home" width="49%">
+  <img src="docs/screenshots/control.png" alt="Control" width="49%">
+</p>
+<p align="center">
+  <img src="docs/screenshots/lock.png" alt="Band Lock" width="49%">
+  <img src="docs/screenshots/params.png" alt="Parameters" width="49%">
+</p>
+<p align="center">
+  <img src="docs/screenshots/messages.png" alt="Messages" width="49%">
+  <img src="docs/screenshots/settings.png" alt="Settings" width="49%">
+</p>
 
 ### Features
 
