@@ -1,74 +1,103 @@
-CPEManager 
-
-是一款面向兼容华为 CPE 路由器的 Windows 桌面管理工具，用于查看 4G/5G 信号状态、网络参数、设备信息和短信，并提供网络模式切换、频段锁定及设备加速等本地管理功能。
-
-项目介绍（README）
-
-CPEManager
-
-CPEManager 是一个原生 Windows 桌面应用，为兼容的华为 CPE 路由器提供更直观的本地管理界面。应用基于 WebView2 构建界面，通过路由器局域网 Web API 读取状态并执行管理操作。
-
-主要功能
-
-实时查看 4G/5G 信号参数：RSRP、RSRQ、RSSI、SINR
-
-查看主载波与辅载波的频段、带宽、ARFCN、PCI 等信息
-
-查看上下行速率、流量统计和联网时长
-
-查看设备型号、IMEI、IMSI、软件版本等 CPE 信息
-
-切换网络偏好、5G SA/NSA 模式和移动数据开关
-
-锁定或解除 4G/5G 频段与小区
-
-查看、发送和管理 CPE 短信
-
-查看已连接设备及支持的设备加速状态
-
-读取支持设备的签约上下行速率
-
-使用说明
-
-将电脑连接到 CPE 所在局域网。
-
-启动 CPEManager。
-
-输入 CPE 的管理地址和密码并登录。
-
-在首页、控制、锁频、参数和短信页面使用对应功能。
-
-隐私与安全
-
-登录信息仅保存在本机，并使用 Windows 用户级加密保护。请勿提交本地登录文件、浏览器数据、日志或编译产物到仓库。
-
-兼容性说明
-
-不同 CPE 型号和固件版本提供的本地 API 可能不同。请仅在自己拥有或被授权管理的设备上使用本项目，并在使用涉及网络模式、锁频或短信的功能前确认其适用于你的设备。
 # CPEManager
 
-一款适用于兼容华为CPE路由器的原生Windows桌面客户端。它使用WebView2作为界面，并通过路由器的本地Web API进行通信，以显示信号数据、管理网络模式和频段、查看短信以及访问支持的设备控制功能。
+[中文](#中文) · [English](#english)
 
-## 要求
+---
 
-- Windows 10 或更高版本
-- Visual Studio 2022 Community（或 Build Tools）并包含 C++ 桌面开发工作负载
-- 首次构建时需要互联网连接，因此 WebView2 SDK 可以从 NuGet 下载
+## 中文
 
-## 构建
+CPEManager 是一款面向兼容华为 CPE 路由器的 Windows 桌面管理工具。
 
-运行 `build-release.bat`，从 Visual Studio 的开发者命令提示符中运行。该脚本会在需要时下载 `Microsoft.Web.WebView2`版本 `1.0.2903.40`到 `packages/`目录，然后生成 `CPEManager.exe`和 `CpeContractRate.dll`。
+它通过路由器的本地 Web API 提供更直观的管理界面，可查看 4G/5G 信号、网络状态、设备信息和短信，并支持网络模式切换、频段锁定和设备加速管理。
 
-## 安全与隐私
+### 功能
 
--不要提交`cpe_login.txt`, `cpe_login.dat`, `WebViewData/`, 日志、测试捕获或生成的二进制文件。
-- 应用保存的 CPE 凭据受到 Windows DPAPI 的保护，只能由保存它们的 Windows 用户解密。它们绝不会返回到嵌入式 Web 界面。
--该工具可以显示路由器和SIM卡信息、已连接设备的元数据以及短信内容。仅在您拥有或被授权管理的路由器上使用。
+- 实时查看 RSRP、RSRQ、RSSI、SINR 等 4G/5G 信号参数
+- 查看主载波、辅载波、频段、带宽、ARFCN 和 PCI
+- 查看上下行速率、流量统计和联网时长
+- 查看设备型号、IMEI、IMSI、软硬件版本等信息
+- 切换网络偏好、5G SA/NSA 模式和移动数据
+- 锁定或解除 4G/5G 频段与小区
+- 查看、发送和管理短信
+- 查看已连接设备和支持的设备加速状态
 
-## 测试
+### 使用
 
-The `tests/`目录包含协议和UI探测。某些测试需要可访问的本地CPE和有效的凭据；请将所有此类凭据保存在被 `.gitignore`. 排除的文件中。
+1. 将电脑连接到 CPE 所在局域网。
+2. 启动 CPEManager。
+3. 输入 CPE 管理地址和密码并登录。
+4. 在首页、控制、锁频、参数和短信页面使用对应功能。
 
-## 发布前
+### 构建
 
-选择并添加软件许可证，然后查看支持的路由器型号和 API 行为，然后再宣传广泛兼容性。本仓库不包含任何许可证，因为项目所有者必须做出该法律选择。
+需要 Windows 10 或更高版本，以及安装了 C++ 桌面开发工作负载的 Visual Studio 2022。
+
+在 Visual Studio 开发者命令提示符中运行：
+
+```bat
+build-release.bat
+```
+
+首次构建时，脚本会自动下载 WebView2 SDK。
+
+### 隐私与安全
+
+登录信息仅保存在本机，并使用 Windows 用户级加密保护。请勿提交登录文件、WebView 浏览器数据、日志或编译产物。
+
+仅在你拥有或被授权管理的 CPE 上使用本软件。
+
+### 兼容性
+
+不同 CPE 型号和固件的本地 API 可能不同。欢迎通过 Issue 提交兼容性反馈，并注明设备型号和固件版本。
+
+---
+
+## English
+
+CPEManager is a Windows desktop management tool for compatible Huawei CPE routers.
+
+It provides a more intuitive interface through the router's local Web API, allowing users to monitor 4G/5G signal data, network status, device information, and SMS messages, as well as manage network modes, band locking, and device acceleration.
+
+### Features
+
+- Monitor 4G/5G signal metrics, including RSRP, RSRQ, RSSI, and SINR
+- View primary and secondary carrier bands, bandwidth, ARFCN, and PCI
+- View upload/download rates, traffic usage, and connection duration
+- View device model, IMEI, IMSI, hardware version, and software version
+- Switch network preferences, 5G SA/NSA modes, and mobile data
+- Lock or unlock 4G/5G bands and cells
+- View, send, and manage SMS messages
+- View connected devices and supported device acceleration status
+
+### Usage
+
+1. Connect your computer to the local network of the CPE router.
+2. Start CPEManager.
+3. Enter the CPE management address and password.
+4. Use the Home, Control, Band Lock, Parameters, and Messages pages as needed.
+
+### Build
+
+Windows 10 or later and Visual Studio 2022 with the **Desktop development with C++** workload are required.
+
+Run the following command from a Visual Studio Developer Command Prompt:
+
+```bat
+build-release.bat
+```
+
+The WebView2 SDK will be downloaded automatically during the first build.
+
+### Privacy and Security
+
+Login information is stored only on the local computer and protected with Windows user-level encryption. Do not commit login files, WebView browser data, logs, or build artifacts.
+
+Use this software only with CPE routers that you own or are authorized to manage.
+
+### Compatibility
+
+Local APIs may vary by CPE model and firmware version. Please open an Issue with the device model and firmware version if you encounter a compatibility problem.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
